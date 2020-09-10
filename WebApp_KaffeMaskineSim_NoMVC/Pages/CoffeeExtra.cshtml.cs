@@ -9,7 +9,7 @@ namespace WebApp_KaffeMaskineSim_NoMVC.Pages
     {
         public void OnGet()
         {
-            var Coffee = TempData.Get<CoffeeModel>("PassedCoffee");
+            var Coffee = TempData.Get<CoffeeModel>("jsonString");
 
             Console.WriteLine(Coffee.CoffeeName);
         }

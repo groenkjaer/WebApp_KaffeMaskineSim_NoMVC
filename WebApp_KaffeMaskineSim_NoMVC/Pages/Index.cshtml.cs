@@ -42,9 +42,9 @@ namespace WebApp_KaffeMaskineSim_NoMVC.Pages
             return RedirectToPage("CoffeeMaker");
         }
 
-        public IActionResult OnPostId(CoffeeModel Id)
+        public IActionResult OnPostId(string id)
         {
-            TempData.Set("PassedCoffee", Id);
+            TempData["jsonString"] = id;
             Console.WriteLine("Did we get here?");
             return RedirectToPage("CoffeeExtra");
         }

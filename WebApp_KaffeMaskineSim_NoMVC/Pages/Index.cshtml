@@ -2,7 +2,6 @@
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
-
 }
 
 <div class="text-center">
@@ -17,7 +16,7 @@
         {
         <form asp-page-handler="id" method="post">
             <button class="btn btn-warning">@coffee.CoffeeName</button>
-            <input type="hidden" name="id" value="@coffee" />
+            <input type="hidden" name="id" value="@coffee.ToString()" />
         </form>
         }
     </div>
