@@ -15,7 +15,11 @@ namespace WebApp_KaffeMaskineSim_NoMVC.Pages.JSON
 
         public void OnGet()
         {
+        }
 
+        public void OnPostCoffee()
+        {
+            Console.WriteLine(Coffee.CoffeeName);
         }
     }
 }

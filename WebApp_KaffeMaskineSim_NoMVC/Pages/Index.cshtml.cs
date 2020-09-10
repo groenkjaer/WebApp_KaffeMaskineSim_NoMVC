@@ -27,9 +27,9 @@ namespace WebApp_KaffeMaskineSim_NoMVC.Pages
             Console.WriteLine("OnPost Hit");
         }
 
-        public void OnPostKaffe()
+        public IActionResult OnPostKaffe()
         {
-            Console.WriteLine("OnPostKaffe Hit");
+            return RedirectToPage("CoffeeMaker");
         }
     }
 }

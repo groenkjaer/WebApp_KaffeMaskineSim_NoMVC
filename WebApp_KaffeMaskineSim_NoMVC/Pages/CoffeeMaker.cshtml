@@ -1,0 +1,37 @@
+﻿@page "{handler?}"
+@model WebApp_KaffeMaskineSim_NoMVC.Pages.JSON.CoffeeMakerModel
+@{
+    ViewData["Title"] = "Order Thine Coffee";
+}
+
+<h1>ORDER COFFEE OR DIE, plz</h1> 
+
+<form class="form-group" asp-page-handler="Coffee" method="post">
+    <input class="form-control" type="text" asp-for="Coffee.CoffeeName" />
+    <p>What temp is the drink?</p>
+    <label><input class="mr-2" type="radio" asp-for="Coffee.Temperature" value="Cold" />Cold</label>
+    <br />
+    <label><input class="mr-2" type="radio" asp-for="Coffee.Temperature" value="Medium" checked="checked" />Medium</label>
+    <br />
+    <label><input class="mr-2" type="radio" asp-for="Coffee.Temperature" value="Warm" />Warm</label>
+    <p>Seasonal Beverage?</p>
+    <label><input class="mr-2" type="radio" asp-for="Coffee.Season" value="Spring" />Spring</label>
+    <br />
+    <label><input class="mr-2" type="radio" asp-for="Coffee.Season" value="Summer" />Summer</label>
+    <br />
+    <label><input class="mr-2" type="radio" asp-for="Coffee.Season" value="Fall" />Fall</label>
+    <br />
+    <label><input class="mr-2" type="radio" asp-for="Coffee.Season" value="Winter" />Winter</label>
+    <p>Is it an alcoholic drink?</p>
+    <label><input class="mr-2" type="radio" asp-for="Coffee.Alcoholic" value="True" />DoDoes drink contain Alcohol?</label>
+    <p>Extra stuff</p>
+    <label><input class="mr-2" type="checkbox" asp-for="Coffee.Sugar" checked="checked" />Sugar</label>
+    <br />
+    <label><input class="mr-2" type="checkbox" asp-for="Coffee.Milk"  />Milk</label>
+    <br />
+    <label><input class="mr-2" type="checkbox" asp-for="Coffee.Cream" />Cream</label>
+    <br />
+    <label><input class="mr-2" type="checkbox" asp-for="Coffee.Syrup" />Syrup</label>
+
+    <button class="btn btn-warning mt-2">Make that coffee</button>
+</form>
