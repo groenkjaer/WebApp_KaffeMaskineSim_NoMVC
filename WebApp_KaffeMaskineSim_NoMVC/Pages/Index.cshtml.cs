@@ -6,6 +6,7 @@ using System.IO;
 using System.Text.Json;
 using System.Collections.Generic;
 using WebApp_KaffeMaskineSim_NoMVC.Models;
+using WebApp_KaffeMaskineSim_NoMVC.Helpers;
 
 namespace WebApp_KaffeMaskineSim_NoMVC.Pages
 {
@@ -43,10 +44,7 @@ namespace WebApp_KaffeMaskineSim_NoMVC.Pages
 
         public IActionResult OnPostId(CoffeeModel Id)
         {
-            ViewData["CoffeeObject"] = new CoffeeModel()
-            {
-                CoffeeName = "bæ"
-            };
+            TempData.Set("PassedCoffee", Id);
             Console.WriteLine("Did we get here?");
             return RedirectToPage("CoffeeExtra");
         }

@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+using WebApp_KaffeMaskineSim_NoMVC.Helpers;
+using WebApp_KaffeMaskineSim_NoMVC.Models;
+using System;
 
 namespace WebApp_KaffeMaskineSim_NoMVC.Pages
 {
@@ -11,7 +9,9 @@ namespace WebApp_KaffeMaskineSim_NoMVC.Pages
     {
         public void OnGet()
         {
+            var Coffee = TempData.Get<CoffeeModel>("PassedCoffee");
 
+            Console.WriteLine(Coffee.CoffeeName);
         }
     }
 }
