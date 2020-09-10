@@ -1,0 +1,20 @@
+﻿@page
+@model WebApp_KaffeMaskineSim_NoMVC.Pages.CoffeeExtraModel
+@{
+    ViewData["Title"] = "CoffeeExtra";
+
+    var coffee = (Models.CoffeeModel)ViewData["CoffeeObject"];
+}
+
+<h1>@coffee.CoffeeName</h1>
+<h1>Hello</h1>
+
+<form action="/" method="post">
+    @*<label><input class="mr-2" type="checkbox" asp-for="Coffee.Extra" value="Sugar" />Sugar</label>
+    <br />
+    <label><input class="mr-2" type="checkbox" asp-for="Coffee.Extra" value="Milk" />Milk</label>
+    <br />
+    <label><input class="mr-2" type="checkbox" asp-for="Coffee.Extra" value="Creme" />Creme</label>
+    <br />
+    <label><input class="mr-2" type="checkbox" asp-for="Coffee.Extra" value="Syrup" />Syrup</label>*@
+</form>

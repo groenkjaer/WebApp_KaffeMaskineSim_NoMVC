@@ -41,9 +41,14 @@ namespace WebApp_KaffeMaskineSim_NoMVC.Pages
             return RedirectToPage("CoffeeMaker");
         }
 
-        public void OnPostId(string Id)
+        public IActionResult OnPostId(CoffeeModel Id)
         {
-            Console.WriteLine(Id);
+            ViewData["CoffeeObject"] = new CoffeeModel()
+            {
+                CoffeeName = "bæ"
+            };
+            Console.WriteLine("Did we get here?");
+            return RedirectToPage("CoffeeExtra");
         }
     }
 }
