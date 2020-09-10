@@ -10,8 +10,12 @@
     <div>
         <img style="margin-left: auto;margin-right: auto;display: block; width: 70%;" src="~/images/kaffemaskine.png" />
         <form asp-page-handler="Kaffe" method="post">
-            <button OnClick="Clicker" class="btn btn-warning">KaffeKnap</button>
+            <button class="btn btn-warning">KaffeKnap</button>
         </form>
 
+        @foreach (var coffee in Model.Coffees)
+        {
+            <button class="btn btn-warning">@coffee.CoffeeName</button>
+        }
     </div>
 </div>
