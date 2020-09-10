@@ -40,5 +40,10 @@ namespace WebApp_KaffeMaskineSim_NoMVC.Pages
         {
             return RedirectToPage("CoffeeMaker");
         }
+
+        public void OnPostId(string Id)
+        {
+            Console.WriteLine(Id);
+        }
     }
 }
