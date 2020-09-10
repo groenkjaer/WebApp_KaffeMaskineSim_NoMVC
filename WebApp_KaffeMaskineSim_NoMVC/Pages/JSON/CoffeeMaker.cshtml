@@ -1,0 +1,22 @@
+﻿@page
+@model WebApp_KaffeMaskineSim_NoMVC.Pages.JSON.CoffeeMakerModel
+@{
+    ViewData["Title"] = "CoffeeMaker";
+}
+
+<h1>CoffeeMaker</h1>
+
+<form class="form-group" action="/" method="post">
+    <input class="form-control" type="text" value="" asp-for="Coffee.CoffeeName"/>
+    <p>What temp is the drink?</p>
+    <asp:radiobutton id="Radio1" text="Cold" runat="server" />
+    <asp:radiobutton id="Radio2" text="Medium" runat="server" />
+    <asp:radiobutton id="Radio3" text="Warm" runat="server" />
+    <p>Seasonal Beverage?</p>
+    <asp:radiobutton id="Radio4" text="Spring" runat="server" />
+    <asp:radiobutton id="Radio5" text="Summer" runat="server" />
+    <asp:radiobutton id="Radio6" text="Fall" runat="server" />
+    <asp:radiobutton id="Radio7" text="Winter" runat="server" />
+    <p>is it an alcoholic drink?</p>
+    <asp:radiobutton id="Radio8" text="Alcohol" runat="server" />
+</form>

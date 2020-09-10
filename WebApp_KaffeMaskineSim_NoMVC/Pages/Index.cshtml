@@ -1,20 +1,17 @@
-﻿@page
+﻿@page "{handler?}"
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
+
 }
 
 <div class="text-center">
     <h1>Kaffe</h1>
     <div>
-        <img style="margin-left: auto;margin-right: auto;display: block; width: 70%;" src="https://media3.gaggenau.com/Product_Shots/1800x1012/MCSA01688204_G4104_CM450711_1136148_02_def.png" />
-
-        <form asp-page-handler="kaffe" method="post">
-            <button class="btn btn-warning">KaffeKnap</button>
+        <img style="margin-left: auto;margin-right: auto;display: block; width: 70%;" src="~/images/kaffemaskine.png" />
+        <form asp-page-handler="Kaffe" method="post">
+            <button OnClick="Clicker" class="btn btn-warning">KaffeKnap</button>
         </form>
 
-        <asp:Button runat>
-
-        </asp:Button>
     </div>
 </div>
