@@ -2,16 +2,22 @@
 using WebApp_KaffeMaskineSim_NoMVC.Helpers;
 using WebApp_KaffeMaskineSim_NoMVC.Models;
 using System;
+using Microsoft.AspNetCore.Mvc;
 
 namespace WebApp_KaffeMaskineSim_NoMVC.Pages
 {
     public class CoffeeExtraModel : PageModel
     {
-        public void OnGet()
-        {
-            var Coffee = TempData.Get<CoffeeModel>("jsonString");
+        [BindProperty]
+        public CoffeeModel Coffee { get; set; }
 
-            Console.WriteLine(Coffee.CoffeeName);
+        public IActionResult OnGet()
+        {
+            Coffee = TempData.Get<CoffeeModel>("jsonString");
+            if (Coffee != null)
+                return new PageResult();
+            else
+                return RedirectToPage("Index");
         }
     }
 }

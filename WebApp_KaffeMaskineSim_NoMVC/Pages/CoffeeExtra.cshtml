@@ -3,7 +3,22 @@
 @{
     ViewData["Title"] = "CoffeeExtra";
 }
-<h1>Hello</h1>
+<h1>Du har valgt en</h1>
+<h3>
+    @Model.Coffee.Temperature 
+    @Model.Coffee.CoffeeName
+    @{ 
+        if (!Model.Coffee.Alcoholic != true)
+        {
+            @:med alkohol,
+        }
+        else 
+        { 
+            @:uden alkohol,
+        }
+        @:den smager af @Model.Coffee.Season
+    }
+</h3>
 
 <form action="/" method="post">
     @*<label><input class="mr-2" type="checkbox" asp-for="Coffee.Extra" value="Sugar" />Sugar</label>
