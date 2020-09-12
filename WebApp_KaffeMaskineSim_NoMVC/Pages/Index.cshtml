@@ -2,6 +2,16 @@
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
+
+    if (Request.RouteValues.ContainsKey("unsanitizied"))
+    {
+        <script type="text/javascript">
+         window.onload = function () {
+             alert("stinky stinky");
+         };
+        </script>
+    }
+
 }
 
 <div class="text-center">
@@ -14,10 +24,10 @@
 
         @foreach (var coffee in Model.Coffees)
         {
-        <form asp-page-handler="id" method="post">
-            <button class="btn btn-warning">@coffee.CoffeeName</button>
-            <input type="hidden" name="id" value="@coffee.ToString()" />
-        </form>
+            <form asp-page-handler="id" method="post">
+                <button class="btn btn-warning">@coffee.CoffeeName</button>
+                <input type="hidden" name="id" value="@coffee.ToString()" />
+            </form>
         }
     </div>
 </div>

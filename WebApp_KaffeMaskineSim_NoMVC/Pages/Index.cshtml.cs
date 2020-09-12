@@ -15,10 +15,13 @@ namespace WebApp_KaffeMaskineSim_NoMVC.Pages
         private readonly ILogger<IndexModel> _logger;
         private string path = Path.Combine(Environment.CurrentDirectory, "JSON");
         public List<CoffeeModel> Coffees { get; set; } = new List<CoffeeModel>();
+        public bool CleanHands { get; set; }
 
         public IndexModel(ILogger<IndexModel> logger)
         {
             _logger = logger;
+
+            CleanHands = false; //TESTING
         }
 
         public void OnGet()
@@ -42,11 +45,40 @@ namespace WebApp_KaffeMaskineSim_NoMVC.Pages
             return RedirectToPage("CoffeeMaker");
         }
 
+        public void OnGetUnsanitizied()
+        {
+            Console.WriteLine("pleeease");
+        }
+
         public IActionResult OnPostId(string id)
         {
-            TempData["jsonString"] = id;
-            Console.WriteLine("Did we get here?");
-            return RedirectToPage("CoffeeExtra");
+            if (CleanHands)
+            {
+                TempData["jsonString"] = id;
+                return RedirectToPage("CoffeeExtra");
+            }
+            else
+            {
+                return RedirectToPage("Index", "Unsanitizied");
+            }
+            
         }
+
+
+        //public bool Sanitized()
+        //{
+        //    bool clean;
+
+        //    try
+        //    {
+        //        clean = (bool)TempData["Sanitised"];
+        //    }
+        //    catch
+        //    {
+        //        clean = false;
+        //    }
+            
+        //    return clean;
+        //}
     }
 }
