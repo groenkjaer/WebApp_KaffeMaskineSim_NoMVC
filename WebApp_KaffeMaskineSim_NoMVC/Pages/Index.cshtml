@@ -3,15 +3,14 @@
 @{
     ViewData["Title"] = "Home page";
 
-    if (Request.RouteValues.ContainsKey("unsanitizied"))
+    if (Request.Path.Value == "/Unsanitized")
     {
         <script type="text/javascript">
-         window.onload = function () {
-             alert("stinky stinky");
-         };
+            window.onload = function () {
+                alert("Du skal spritte dine hænder før du bruger min kaffemaskine >:/");
+            };
         </script>
     }
-
 }
 
 <div class="text-center">

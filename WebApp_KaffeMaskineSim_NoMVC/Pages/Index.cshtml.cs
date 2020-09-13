@@ -19,6 +19,7 @@ namespace WebApp_KaffeMaskineSim_NoMVC.Pages
 
         public IndexModel(ILogger<IndexModel> logger)
         {
+            GetCoffeeFiles();
             _logger = logger;
 
             CleanHands = false; //TESTING
@@ -26,9 +27,13 @@ namespace WebApp_KaffeMaskineSim_NoMVC.Pages
 
         public void OnGet()
         {
+        }
+
+        private void GetCoffeeFiles()
+        {
             string[] files = Directory.GetFiles(path);
 
-            foreach (var file  in files)
+            foreach (var file in files)
             {
                 CoffeeModel coffeeJson = JsonSerializer.Deserialize<CoffeeModel>(System.IO.File.ReadAllText(file));
                 Coffees.Add(coffeeJson);
@@ -45,7 +50,7 @@ namespace WebApp_KaffeMaskineSim_NoMVC.Pages
             return RedirectToPage("CoffeeMaker");
         }
 
-        public void OnGetUnsanitizied()
+        public void OnGetUnsanitized()
         {
             Console.WriteLine("pleeease");
         }
@@ -59,7 +64,7 @@ namespace WebApp_KaffeMaskineSim_NoMVC.Pages
             }
             else
             {
-                return RedirectToPage("Index", "Unsanitizied");
+                return RedirectToPage("Index", "Unsanitized");
             }
             
         }
