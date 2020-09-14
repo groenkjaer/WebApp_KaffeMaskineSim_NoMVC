@@ -20,18 +20,21 @@
     }
 </h3>
 
-<form action="/" method="post">
-    <label><input class="mr-2" type="checkbox" asp-for="Coffee.Sugar" value="Sugar" />Sugar</label>
+<form asp-page-handler="Pay" method="post">
+    <label><input class="mr-2" type="checkbox" asp-for="Coffee.Sugar" value="true" />Sugar</label>
     <br />
-    <label><input class="mr-2" type="checkbox" asp-for="Coffee.Milk" value="Milk" />Milk</label>
+    <label><input class="mr-2" type="checkbox" asp-for="Coffee.Milk" value="true" />Milk</label>
     <br />
-    <label><input class="mr-2" type="checkbox" asp-for="Coffee.Cream" value="Creme" />Creme</label>
+    <label><input class="mr-2" type="checkbox" asp-for="Coffee.Cream" value="true" />Creme</label>
     <br />
-    <label><input class="mr-2" type="checkbox" asp-for="Coffee.Syrup" value="Syrup" />Syrup</label>
+    <label><input class="mr-2" type="checkbox" asp-for="Coffee.Syrup" value="true" />Syrup</label>
+    <br />
+    <label><input class="mr-2" type="checkbox" asp-for="Coffee.ToGo" value="true" />To Go</label>
+    <input type="hidden" name="id" value="@Model.Coffee.ToString()" />
+    <br />
+    <Button class="btn btn-success p-5">Pay Here</Button>
+    <br />
 </form>
-<form asp-page-handler="Pay" action="/" method="post">
-    <Button class="btn btn-success">Gå til betaling</Button>
-</form>
-<form asp-page-handler="Cancel" action="/" method="post">
-    <Button class="btn btn-warning">Fortryd Køb</Button>
+<form asp-page-handler="Cancel" method="post">
+    <Button class="btn btn-danger p-0">Fortryd Køb</Button>
 </form>
