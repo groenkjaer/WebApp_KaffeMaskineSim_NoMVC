@@ -13,10 +13,10 @@
             @RenderBody()
         </main>
     </div>
-
+    
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2020 - Epic Covfefe Maskine - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            <h2 id="timer" class="display-4 text-center text-danger font-weight-bolder"></h2>
         </div>
     </footer>
 
@@ -25,10 +25,17 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
 
     @RenderSection("Scripts", required: false)
-    <script>
-        window.setTimeout(function () {
-            window.location.href = '@Url.Page("Index")';
-        }, 30000);
-    </script>
+<script>
+        let timer = 30;
+        window.setInterval(() => {
+            timer -= 1;
+            if (timer > 0)
+                document.getElementById("timer").innerHTML = "Kaffemaskinen Slukker Om " + timer;
+            else{
+                document.getElementById("timer").innerHTML = "Kaffemaskinen Slukker";
+                window.location.href = '../index.html';
+            }
+        }, 1000);
+</script>
 </body>
 </html>
