@@ -30,7 +30,9 @@
     <label><input class="mr-2" type="checkbox" asp-for="Coffee.Syrup" value="true" />Syrup</label>
     <br />
     <label><input class="mr-2" type="checkbox" asp-for="Coffee.ToGo" value="true" />To Go</label>
-    <input type="hidden" name="id" value="@Model.Coffee.ToString()" />
+    <input type="hidden" asp-for="Coffee.CoffeeName" value="@Model.Coffee.CoffeeName" />
+    <input type="hidden" asp-for="Coffee.Alcoholic" value="@Model.Coffee.Alcoholic" />
+    <input type="hidden" asp-for="Coffee.Season" value="@Model.Coffee.Season" />
     <br />
     <Button class="btn btn-success p-5">Pay Here</Button>
     <br />

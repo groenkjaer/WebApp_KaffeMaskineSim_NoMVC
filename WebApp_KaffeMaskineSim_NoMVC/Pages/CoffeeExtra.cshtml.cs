@@ -4,6 +4,7 @@ using WebApp_KaffeMaskineSim_NoMVC.Models;
 using System;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
+using System.Threading.Tasks;
 
 namespace WebApp_KaffeMaskineSim_NoMVC.Pages
 {
@@ -23,13 +24,13 @@ namespace WebApp_KaffeMaskineSim_NoMVC.Pages
 
         public IActionResult OnPostPay(string id)
         {
-            var secondCoffee = JsonSerializer.Deserialize<CoffeeModel>(id);
-            Coffee.CoffeeName = secondCoffee.CoffeeName;
-            Coffee.Alcoholic = secondCoffee.Alcoholic;
-            Coffee.Season = secondCoffee.Season;
-
             TempData.Set<CoffeeModel>("Coffee", Coffee);
             return RedirectToPage("CoffeeDelivery");
+        }
+
+        private Task<CoffeeModel> GetStuff()
+        {
+            return null;
         }
     }
 }
