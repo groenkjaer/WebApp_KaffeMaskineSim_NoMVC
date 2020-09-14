@@ -25,10 +25,7 @@ namespace WebApp_KaffeMaskineSim_NoMVC.Pages
 
         public void OnGet()
         {
-        }
-
-        public void OnGetUnsanitized()
-        {
+            TempData.Clear();
         }
 
         public void OnPostSprit()
