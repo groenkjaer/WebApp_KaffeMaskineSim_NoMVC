@@ -6,3 +6,13 @@
 
 <h1>Værsgod så der serveret</h1>
 
+@{
+    if (Model.Coffee.ToGo)
+    {
+        <img src="~/images/koptogo.png"/>
+    }
+    else
+    {
+        <img src="~/images/kop.png" />
+    }
+}

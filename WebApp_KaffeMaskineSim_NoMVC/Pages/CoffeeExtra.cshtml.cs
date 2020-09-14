@@ -21,12 +21,15 @@ namespace WebApp_KaffeMaskineSim_NoMVC.Pages
                 return RedirectToPage("Index");
         }
 
-        public void OnPostPay(string id)
+        public IActionResult OnPostPay(string id)
         {
             var secondCoffee = JsonSerializer.Deserialize<CoffeeModel>(id);
             Coffee.CoffeeName = secondCoffee.CoffeeName;
             Coffee.Alcoholic = secondCoffee.Alcoholic;
             Coffee.Season = secondCoffee.Season;
+
+            TempData.Set<CoffeeModel>("Coffee", Coffee);
+            return RedirectToPage("CoffeeDelivery");
         }
     }
 }
