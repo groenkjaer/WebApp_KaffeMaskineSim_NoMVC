@@ -14,7 +14,14 @@
 }
 
 <div class="text-center">
-    <h1>Kaffe</h1>
+    <h1>Min Kaffemaskine</h1>
+
+    <div>
+        <form asp-page-handler="Sprit" method="post">
+            <button class="btn btn-primary p-3">Sprit Dine Hænder</button>
+        </form>
+    </div>
+
     <div>
         <img style="margin-left: auto;margin-right: auto;display: block; width: 70%;" src="~/images/kaffemaskine.png" />
         <form asp-page-handler="Kaffe" method="post">

@@ -29,3 +29,9 @@
     <br />
     <label><input class="mr-2" type="checkbox" asp-for="Coffee.Syrup" value="Syrup" />Syrup</label>
 </form>
+<form asp-page-handler="Pay" action="/" method="post">
+    <Button class="btn btn-success">Gå til betaling</Button>
+</form>
+<form asp-page-handler="Cancel" action="/" method="post">
+    <Button class="btn btn-warning">Fortryd Køb</Button>
+</form>
