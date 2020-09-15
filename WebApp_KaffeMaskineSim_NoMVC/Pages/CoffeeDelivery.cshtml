@@ -4,15 +4,17 @@
     ViewData["Title"] = "CoffeeDelivery";
 }
 
-<h1>Værsgod så der serveret</h1>
+<div class="container">
+    <h1>Værsgod så der serveret</h1>
 
-@{
-    if (Model.Coffee.ToGo)
-    {
-        <img src="~/images/koptogo.png"/>
+    @{
+        if (Model.Coffee.ToGo)
+        {
+            <img src="~/images/koptogo.png" />
+        }
+        else
+        {
+            <img src="~/images/kop.png" />
+        }
     }
-    else
-    {
-        <img src="~/images/kop.png" />
-    }
-}
+</div>
