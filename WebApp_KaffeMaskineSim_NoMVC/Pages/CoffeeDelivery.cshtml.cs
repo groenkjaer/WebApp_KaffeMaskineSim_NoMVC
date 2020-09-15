@@ -12,9 +12,12 @@ namespace WebApp_KaffeMaskineSim_NoMVC.Pages
     public class CoffeeDeliveryModel : PageModel
     {
         public CoffeeModel Coffee { get; set; }
-        public void OnGet()
+        public IActionResult OnGet()
         {
+            if (!TempData.ContainsKey("Coffee"))
+                return RedirectToPage("Index");
             Coffee = TempData.Get<CoffeeModel>("Coffee");
+            return Page();
         }
     }
 }
