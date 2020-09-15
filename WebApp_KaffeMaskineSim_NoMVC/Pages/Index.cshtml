@@ -13,28 +13,34 @@
     }
 }
 
+<h1 class="text-center display-4">Min Kaffemaskine</h1>
+<div class="row no-gutters">
+    <div class="col p-3">
 
-<div class="text-center">
-    <h1>Min Kaffemaskine</h1>
-
-    <div>
-        <form asp-page-handler="Sprit" method="post">
-            <button class="btn btn-primary p-3">Sprit Dine Hænder</button>
-        </form>
     </div>
 
-    <div>
-        <img style="margin-left: auto;margin-right: auto;display: block; width: 70%;" src="~/images/kaffemaskine.png" />
-        <form asp-page-handler="Kaffe" method="post">
-            <button class="btn btn-warning">KaffeKnap</button>
+    <div class="col-6 p-3">
+        <img class="img-responsive" style="width:100%" src="~/images/kaffemaskine.png" />
+    </div>
+
+    <div class="col p-3">
+
+        <form asp-page-handler="Sprit" method="post">
+            <button class="btn btn-lg btn-block btn-primary py-3 mb-1">Sprit Dine Hænder</button>
         </form>
 
-        @foreach (var coffee in Model.Coffees)
-        {
-            <form asp-page-handler="id" method="post">
-                <button class="btn btn-warning">@coffee.CoffeeName</button>
-                <input type="hidden" name="id" value="@coffee.ToString()" />
-            </form>
-        }
+        <form asp-page-handler="Kaffe" method="post">
+            <button class="btn btn-lg btn-block btn-warning py-3">Lav en ny kaffe (json)</button>
+        </form>
+
+        <div class="text-center">
+            @foreach (var coffee in Model.Coffees)
+            {
+                <form style="display:inline-block; width:30%; box-sizing: border-box;" asp-page-handler="id" method="post">
+                    <button class="btn btn-block btn-warning mr-1 mt-1">@coffee.CoffeeName</button>
+                    <input type="hidden" name="id" value="@coffee.ToString()" />
+                </form>
+            }
+        </div>
     </div>
 </div>
