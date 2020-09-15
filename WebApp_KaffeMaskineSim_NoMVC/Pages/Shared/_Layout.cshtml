@@ -13,8 +13,9 @@
     </main>
     
     <footer class="border-top footer text-muted">
-        <div class="container">
-            <h2 id="timer" class="display-4 text-center text-danger font-weight-bolder"></h2>
+        <div class="container text-center">
+            <h1 id="sec" class="d-inline text-center text-danger font-weight-bolder"></h1>
+            <h3 id="millisec" class="d-inline text-center text-danger font-weight-bolder"></h3>
         </div>
     </footer>
 
@@ -24,16 +25,34 @@
 
     @RenderSection("Scripts", required: false)
 <script>
-        let timer = 3000000000000000000000000000000000000;
-        window.setInterval(() => {
-            timer -= 1;
-            if (timer > 0)
-                document.getElementById("timer").innerHTML = "Kaffemaskinen Slukker Om " + timer;
-            else{
-                document.getElementById("timer").innerHTML = "Kaffemaskinen Slukker";
-                window.location.href = '../index.html';
-            }
-        }, 1000);
+    //let timer = 30;
+    //window.setInterval(() => {
+    //    timer -= 1;
+    //    if (timer > 0)
+    //        document.getElementById("timer").innerHTML = "Kaffemaskinen Slukker Om " + timer;
+    //    else{
+    //        document.getElementById("timer").innerHTML = "Kaffemaskinen Slukker";
+    //        window.location.href = '../index.html';
+    //    }
+    //}, 1000);
+
+    let timer = 3000;
+    window.setInterval(() => {
+        if (timer == 0) {
+            window.location.href = '../index.html';
+        } else {
+            timer -= 10;
+            let sec = Math.floor(timer / 100);
+            let milliSec = timer % 100;
+
+            document.getElementById("sec").innerHTML = "Kaffemaskinen Slukker Om " + sec;
+
+            if (milliSec == 0)
+                document.getElementById("millisec").innerHTML = "00";
+            else
+                document.getElementById("millisec").innerHTML = milliSec;
+        }        
+    }, 100);
 </script>
 </body>
 </html>
