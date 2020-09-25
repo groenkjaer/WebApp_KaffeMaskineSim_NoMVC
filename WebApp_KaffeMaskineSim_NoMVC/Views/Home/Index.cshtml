@@ -1,6 +1,37 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    @model List<WebApp_KaffeMaskineSim_NoMVC.Models.CoffeeModel>;
+    Layout = "_Layout";
+    ViewData["Title"] = "Home page";
 }
-hahah hej
+
+<h1 class="text-center display-4">Min Kaffemaskine</h1>
+<div class="row no-gutters">
+    <div class="col p-3">
+
+    </div>
+
+    <div class="col-6 p-3">
+        <img class="img-responsive" style="width:100%" src="~/images/kaffemaskine.png" />
+    </div>
+
+    <div class="col p-3">
+
+        <form asp-page-handler="Sprit" method="post">
+            <button class="btn btn-lg btn-block btn-primary py-3 mb-1">Sprit Dine Hænder</button>
+        </form>
+
+        <form asp-page-handler="Kaffe" method="post">
+            <button class="btn btn-lg btn-block btn-warning py-3">Lav en ny kaffe (json)</button>
+        </form>
+
+        <div class="text-center">
+                @foreach (var coffee in Model)
+                {
+                    <form style="display:inline-block; width:30%; box-sizing: border-box;" asp-page-handler="id" method="post">
+                        <button class="btn btn-block btn-warning mr-1 mt-1">@coffee.CoffeeName</button>
+                        <input type="hidden" name="id" value="@coffee.ToString()" />
+                    </form>
+                }
+            </div>
+    </div>
+</div>
