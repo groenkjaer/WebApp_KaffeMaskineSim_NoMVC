@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Epic Covfefe Maskine</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+    
+    <footer class="border-top footer text-muted">
+        <div class="container text-center">
+            <h1 id="sec" class="d-inline text-center text-danger font-weight-bolder"></h1>
+            <h3 id="millisec" class="d-inline text-center text-danger font-weight-bolder"></h3>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+<script>
+    //let timer = 30;
+    //window.setInterval(() => {
+    //    timer -= 1;
+    //    if (timer > 0)
+    //        document.getElementById("timer").innerHTML = "Kaffemaskinen Slukker Om " + timer;
+    //    else{
+    //        document.getElementById("timer").innerHTML = "Kaffemaskinen Slukker";
+    //        window.location.href = '../index.html';
+    //    }
+    //}, 1000);
+
+    let timer = 3000;
+    window.setInterval(() => {
+        if (timer == 0) {
+            window.location.href = '../index.html';
+        } else {
+            timer -= 10;
+            let sec = Math.floor(timer / 100);
+            let milliSec = timer % 100;
+
+            document.getElementById("sec").innerHTML = "Kaffemaskinen Slukker Om " + sec;
+
+            if (milliSec == 0)
+                document.getElementById("millisec").innerHTML = "00";
+            else
+                document.getElementById("millisec").innerHTML = milliSec;
+        }        
+    }, 100);
+</script>
+</body>
+</html>
