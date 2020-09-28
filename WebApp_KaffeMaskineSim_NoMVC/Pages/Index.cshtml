@@ -36,7 +36,7 @@
         <div class="text-center">
             @foreach (var coffee in Model.Coffees)
             {
-                <form style="display:inline-block; width:30%; box-sizing: border-box;" asp-page-handler="id" method="post">
+                <form style="display:inline-block; width:45%; box-sizing: border-box;" asp-page-handler="id" method="post">
                     <button class="btn btn-block btn-warning mr-1 mt-1">@coffee.CoffeeName</button>
                     <input type="hidden" name="id" value="@coffee.ToString()" />
                 </form>
