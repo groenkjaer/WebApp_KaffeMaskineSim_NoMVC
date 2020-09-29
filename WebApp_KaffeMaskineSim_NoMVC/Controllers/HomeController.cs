@@ -30,6 +30,12 @@ namespace WebApp_KaffeMaskineSim_NoMVC.Controllers
             return View(coffee);
         }
 
+        [Route("Create")]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
         #region Methods
         private CoffeeModel GetCoffee(string coffee)
         {
