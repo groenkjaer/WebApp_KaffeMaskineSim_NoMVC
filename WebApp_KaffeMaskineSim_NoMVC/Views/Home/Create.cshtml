@@ -17,18 +17,33 @@
                         @Html.TextBoxFor(q => q.CoffeeName)
                     </p>
                     <p>
-                        @Html.LabelFor(q => q.Temperature)
+                        @Html.LabelFor(q => q.Temperature)<br />
                         @Html.RadioButtonFor(q => q.Temperature, "Frozen")
+                        @Html.LabelFor(q => q.Temperature, "Frozen")
+                        <br />
                         @Html.RadioButtonFor(q => q.Temperature, "Cold")
+                        @Html.LabelFor(q => q.Temperature, "Cold")
+                        <br />
                         @Html.RadioButtonFor(q => q.Temperature, "Medium")
+                        @Html.LabelFor(q => q.Temperature, "Medium")
+                        <br />
                         @Html.RadioButtonFor(q => q.Temperature, "Warm")
+                        @Html.LabelFor(q => q.Temperature, "Warm")
+
                     </p>
                     <p>
-                        @Html.LabelFor(q => q.Season)
+                        @Html.LabelFor(q => q.Season)<br />
                         @Html.RadioButtonFor(q => q.Season, "Spring")
+                        @Html.LabelFor(q => q.Season, "Spring")
+                        <br />
                         @Html.RadioButtonFor(q => q.Season, "Summer")
+                        @Html.LabelFor(q => q.Season, "Summer")
+                        <br />
                         @Html.RadioButtonFor(q => q.Season, "Fall")
+                        @Html.LabelFor(q => q.Season, "Fall")
+                        <br />
                         @Html.RadioButtonFor(q => q.Season, "Winter")
+                        @Html.LabelFor(q => q.Season, "Winter")
                     </p>
                     <p>
                         @Html.CheckBoxFor(q => q.Alcoholic)
@@ -57,7 +72,7 @@
                         @Html.CheckBoxFor(q => q.ToGo)
                         @Html.LabelFor(q => q.ToGo)
                     </p>
-                    <button class="btn btn-primary btn-lg p-5" type="submit">Pay</button>
+                    <button class="btn btn-primary btn-lg p-5" type="submit">Create</button>
                 }
 
             </fieldset>

@@ -17,7 +17,7 @@ namespace WebApp_KaffeMaskineSim_NoMVC.Controllers
 
         public IActionResult Index()
         {
-            HttpContext.Session.SetInt32(Sanitized, 0);
+            HttpContext.Session.SetInt32(Sanitized, 4);
             var model = GetCoffeeFiles();
             return View(model);
         }
