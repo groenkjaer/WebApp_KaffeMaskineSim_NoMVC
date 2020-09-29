@@ -1,14 +1,68 @@
-﻿
+﻿@model WebApp_KaffeMaskineSim_NoMVC.Models.CoffeeModel
 @{
+    Layout = "_Layout";
     ViewData["Title"] = "Create";
 }
 
 <div class="container">
     <h1 class="display-3 text-center">Create</h1>
 
-    <fieldset>
+    <div class="row">
+        <div class="col-md-4">
+            <fieldset>
+                @using (Html.BeginForm("Create", "Home"))
+                {
+                    <p>
+                        @Html.LabelFor(q => q.CoffeeName)
+                        @Html.TextBoxFor(q => q.CoffeeName)
+                    </p>
+                    <p>
+                        @Html.LabelFor(q => q.Temperature)
+                        @Html.RadioButtonFor(q => q.Temperature, "Frozen")
+                        @Html.RadioButtonFor(q => q.Temperature, "Cold")
+                        @Html.RadioButtonFor(q => q.Temperature, "Medium")
+                        @Html.RadioButtonFor(q => q.Temperature, "Warm")
+                    </p>
+                    <p>
+                        @Html.LabelFor(q => q.Season)
+                        @Html.RadioButtonFor(q => q.Season, "Spring")
+                        @Html.RadioButtonFor(q => q.Season, "Summer")
+                        @Html.RadioButtonFor(q => q.Season, "Fall")
+                        @Html.RadioButtonFor(q => q.Season, "Winter")
+                    </p>
+                    <p>
+                        @Html.CheckBoxFor(q => q.Alcoholic)
+                        @Html.LabelFor(q => q.Alcoholic)
+                    </p>
+                    <p>
+                        @Html.CheckBoxFor(q => q.Sugar)
+                        @Html.LabelFor(q => q.Sugar)
+                    </p>
+                    <p>
+                        @Html.CheckBoxFor(q => q.Milk)
+                        @Html.LabelFor(q => q.Milk)
+                    </p>
 
-    </fieldset>
+                    <p>
+                        @Html.CheckBoxFor(q => q.Cream)
+                        @Html.LabelFor(q => q.Cream)
+                    </p>
+
+                    <p>
+                        @Html.CheckBoxFor(q => q.Syrup)
+                        @Html.LabelFor(q => q.Syrup)
+                    </p>
+
+                    <p>
+                        @Html.CheckBoxFor(q => q.ToGo)
+                        @Html.LabelFor(q => q.ToGo)
+                    </p>
+                    <button class="btn btn-primary btn-lg p-5" type="submit">Pay</button>
+                }
+
+            </fieldset>
+        </div>
+    </div>
 </div>
 
 

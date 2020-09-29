@@ -29,9 +29,9 @@
             <button class="btn btn-lg btn-block btn-primary py-3 mb-1">Sprit Dine Hænder</button>
         </form>
 
-        <form asp-page-handler="Kaffe" method="post">
-            <button class="btn btn-lg btn-block btn-warning py-3">Lav en ny kaffe (json)</button>
-        </form>
+
+        <button href="Create" class="btn btn-lg btn-block btn-warning py-3">Lav en ny kaffe (json)</button>
+
 
         <div class="text-center">
             @foreach (var coffee in Model.Coffees)

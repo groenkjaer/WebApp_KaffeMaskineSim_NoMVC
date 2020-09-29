@@ -1,10 +1,21 @@
 ﻿@model WebApp_KaffeMaskineSim_NoMVC.Models.CoffeeModel
 @{
+    Layout = "_Layout";
     ViewData["Title"] = "CoffeeServed";
 }
 
 <div class="container">
     <h1 class="display-3 text-center">Coffee Served</h1>
+    @{
+        if (Model.ToGo)
+        {
+            <img src="~/images/koptogo.png" />
+        }
+        else
+        {
+            <img src="~/images/kop.png" />
+        }
+    }
 </div>
 
 
