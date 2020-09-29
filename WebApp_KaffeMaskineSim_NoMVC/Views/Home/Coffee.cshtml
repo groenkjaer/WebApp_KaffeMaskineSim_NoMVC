@@ -1,5 +1,62 @@
 ﻿@model WebApp_KaffeMaskineSim_NoMVC.Models.CoffeeModel
+@{ 
+    Layout = "_Layout";
+    ViewData["Title"] = "Coffe Extra";
+}
+<div class="container">
+    <h1 class="display-3">Du har valgt en</h1>
+    <h3>
+        @Model.Temperature
+        @Model.CoffeeName
+        @{
+            if (!Model.Alcoholic != true)
+            {
+                @:med alkohol,
+            }
+            else
+            {
+                @:uden alkohol,
+            }
+            @:den smager af @Model.Season
+        }
+    </h3>
+    <fieldset>
 
-<fieldset>
+        @using (Html.BeginForm("CoffeeServed", "Home"))
+        {
+            <p>
+                @Html.CheckBoxFor(q => q.Sugar)
+                @Html.LabelFor(q => q.Sugar)
+            </p>
 
-</fieldset>
+            <p>
+
+                @Html.CheckBoxFor(q => q.Milk)
+                @Html.LabelFor(q => q.Milk)
+            </p>
+
+            <p>
+                @Html.CheckBoxFor(q => q.Cream)
+                @Html.LabelFor(q => q.Cream)
+            </p>
+
+            <p>
+                @Html.CheckBoxFor(q => q.Syrup)
+                @Html.LabelFor(q => q.Syrup)
+            </p>
+
+            <p>
+                @Html.CheckBoxFor(q => q.ToGo)
+                @Html.LabelFor(q => q.ToGo)
+            </p>
+
+            //Hemmelige attributer som skal med i POST
+            @Html.HiddenFor(q => q.Alcoholic)
+            @Html.HiddenFor(q => q.CoffeeName)
+            @Html.HiddenFor(q => q.Season)
+            @Html.HiddenFor(q => q.Temperature)
+            <button class="btn btn-primary btn-lg p-5" type="submit">Pay</button>
+        }
+
+    </fieldset>
+</div>

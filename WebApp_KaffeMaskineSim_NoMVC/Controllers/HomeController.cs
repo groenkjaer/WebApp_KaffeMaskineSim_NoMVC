@@ -11,8 +11,6 @@ namespace WebApp_KaffeMaskineSim_NoMVC.Controllers
 {
     public class HomeController : Controller
     {
-        public object Coffees { get; private set; }
-
         public IActionResult Index()
         {
             var model = GetCoffeeFiles();
@@ -30,6 +28,7 @@ namespace WebApp_KaffeMaskineSim_NoMVC.Controllers
             return View(coffee);
         }
 
+        #region Methods
         private CoffeeModel GetCoffee(string coffee)
         {
             string path = Path.Combine(Environment.CurrentDirectory, "JSON", coffee + ".json");
@@ -51,5 +50,6 @@ namespace WebApp_KaffeMaskineSim_NoMVC.Controllers
             }
             return Coffees;
         }
+        #endregion
     }
 }
