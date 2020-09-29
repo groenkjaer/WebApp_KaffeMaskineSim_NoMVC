@@ -17,7 +17,6 @@ namespace WebApp_KaffeMaskineSim_NoMVC.Controllers
 
         public IActionResult Index()
         {
-            HttpContext.Session.SetInt32(Sanitized, 4);
             var model = GetCoffeeFiles();
             return View(model);
         }
@@ -25,7 +24,17 @@ namespace WebApp_KaffeMaskineSim_NoMVC.Controllers
         [Route("Coffee/{id?}")]
         public IActionResult Coffee(string id)
         {
+            if (HttpContext.Session.GetInt32(Sanitized) == null)
+            {
+                return View("Error");
+            }
             return View(GetCoffee(id));
+        }
+        [Route("Sprit")]
+        public IActionResult Sprit()
+        {
+            HttpContext.Session.SetInt32(Sanitized, 1);
+            return View("Index", GetCoffeeFiles());
         }
 
         [HttpPost]
@@ -43,10 +52,18 @@ namespace WebApp_KaffeMaskineSim_NoMVC.Controllers
         [HttpPost, Route("Create")]
         public IActionResult Create(CoffeeModel model)
         {
-            return View();
+            CreateFile(model);
+            return View("Index", GetCoffeeFiles());
         }
 
         #region Methods
+        private void CreateFile(CoffeeModel coffee)
+        {
+            string fileName = Path.Combine(Environment.CurrentDirectory, @"JSON", coffee.CoffeeName + ".json");
+            string jsonString;
+            jsonString = JsonSerializer.Serialize(coffee);
+            System.IO.File.WriteAllText(fileName, jsonString);
+        }
         private CoffeeModel GetCoffee(string coffee)
         {
             string path = Path.Combine(Environment.CurrentDirectory, "JSON", coffee + ".json");
