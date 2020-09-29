@@ -27,8 +27,8 @@
         <div class="text-center">
                 @foreach (var coffee in Model)
                 {
-                    <form style="display:inline-block; width:30%; box-sizing: border-box;" action="/home/Coffee/@coffee.CoffeeName" method="post">
-                        <button href="/home/Coffee" class="btn btn-block btn-warning mr-1 mt-1">@coffee.CoffeeName</button>
+                    <form style="display:inline-block; width:30%; box-sizing: border-box;" action="Coffee/@coffee.CoffeeName" method="post">
+                        <button type="submit" class="btn btn-block btn-warning mr-1 mt-1">@coffee.CoffeeName</button>
                     </form>
                 }
             </div>

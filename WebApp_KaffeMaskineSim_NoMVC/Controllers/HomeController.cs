@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Routing;
 using WebApp_KaffeMaskineSim_NoMVC.Models;
 
 namespace WebApp_KaffeMaskineSim_NoMVC.Controllers
@@ -18,6 +19,7 @@ namespace WebApp_KaffeMaskineSim_NoMVC.Controllers
             return View(model);
         }
 
+        [Route("Coffee/{id?}")]
         public IActionResult Coffee(string id)
         {
             return View(GetCoffee(id));
