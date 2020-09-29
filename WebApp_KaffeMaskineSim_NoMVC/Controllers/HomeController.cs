@@ -20,6 +20,24 @@ namespace WebApp_KaffeMaskineSim_NoMVC.Controllers
             return View(model);
         }
 
+        public IActionResult Coffee(string id)
+        {
+            return View(GetCoffee(id));
+        }
+        [HttpPost]
+        public IActionResult CoffeeServed(CoffeeModel coffee)
+        {
+            return View(coffee);
+        }
+
+        private CoffeeModel GetCoffee(string coffee)
+        {
+            string path = Path.Combine(Environment.CurrentDirectory, "JSON", coffee + ".json");
+            CoffeeModel result = JsonSerializer.Deserialize<CoffeeModel>(System.IO.File.ReadAllText(path));
+
+            return result;
+        }
+
         private List<CoffeeModel> GetCoffeeFiles()
         {
             string path = Path.Combine(Environment.CurrentDirectory, "JSON");
